@@ -1,4 +1,7 @@
+require 'subscribem/constraints/subdomain_required'
+
 Blorgh::Application.routes.draw do
+  constraints(Subscribem::Constraints::SubdomainRequired) do
   root :to => "posts#index"
   resources :posts, only: [:index, :show] do
     resources :comments
@@ -13,9 +16,7 @@ Blorgh::Application.routes.draw do
   namespace :admin do
     resources :posts
   end
+end
 
-  get '/sign_in' => 'sessions#new'
-  post '/sign_in' => 'sessions#create'
-
-  delete '/sign_out' => 'sessions#destroy'
+mount Subscribem::Engine, :at => '/'
 end

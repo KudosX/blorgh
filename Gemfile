@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.2'
 gem 'sqlite3'
 
 gem 'sass-rails', '~> 4.0.2'
@@ -19,3 +19,10 @@ gem 'bootstrap-sass', '3.1.1.0'
 gem 'rabl', '0.9.3'
 gem 'warden'
 gem 'pry'
+
+gem 'subscribem', path: '../subscribem'
+
+group :development, :test do
+  gem 'rspec-rails', '3.0.1'
+  gem 'capybara', '2.3.0'
+end
